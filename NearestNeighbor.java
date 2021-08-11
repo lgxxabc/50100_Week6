@@ -9,10 +9,10 @@ import java.util.Scanner;
 /*
  * =========================================
  * Name:             Guanxiaoxiong Liu 
- * Date:             07/26/2021
+ * Date:             08/11/2021
  * Course name:      Programming Foundations 
  * Semester:         Summer 2 
- * Assignment Name:  Program 1
+ * Assignment Name:  Program 3
  * =========================================
  */
 
