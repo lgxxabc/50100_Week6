@@ -3,16 +3,15 @@ package Week6;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
  * =========================================
  * Name:             Guanxiaoxiong Liu 
- * Date:             07/26/2021
+ * Date:             08/11/2021
  * Course name:      Programming Foundations 
  * Semester:         Summer 2 
- * Assignment Name:  Program 1
+ * Assignment Name:  Program 3
  * =========================================
  */
 
@@ -46,16 +45,12 @@ public class NearestNeighbor {
 		// dataset files.
 		System.out.print("Enter the name of the training file: ");
 		fileNameTrain = scan.nextLine();
-//		File f1 = new File(
-//				"C:\\Users\\guanxiaoxiong.liu\\eclipse-workspace\\MyFirstProject\\src\\Week6\\iris-training-data.csv");
 		File f1 = new File(
 				"C:\\Users\\guanxiaoxiong.liu\\eclipse-workspace\\MyFirstProject\\src\\Week6\\" + fileNameTrain);
 		fileScanTrain = new Scanner(f1);
 
 		System.out.print("Enter the name of the testing file: ");
 		fileNameTest = scan.nextLine();
-//		File f2 = new File(
-//				"C:\\Users\\guanxiaoxiong.liu\\eclipse-workspace\\MyFirstProject\\src\\Week6\\iris-testing-data.csv");
 		File f2 = new File(
 				"C:\\Users\\guanxiaoxiong.liu\\eclipse-workspace\\MyFirstProject\\src\\Week6\\" + fileNameTest);
 		fileScanTest = new Scanner(f2);
@@ -130,12 +125,13 @@ public class NearestNeighbor {
 			globalMin = Integer.MAX_VALUE;
 			System.out.println((i + 1) + ": " + trainClassArray[i] + " " + minStringArray[i]);
 		}
-
+		
+		// 4. Computes the accuracy.
 		int matchNum = caluMatch(trainClassArray, minStringArray);
 		double accuracy = caluAccu(matchNum, testClassArray.length);
 		System.out.println("ACCURACY: " + accuracy);
 
-//		Close the scanner streams.
+		// Close the scanner streams.
 		fileScanTrain.close();
 		fileScanTest.close();
 		scan.close();
@@ -168,7 +164,6 @@ public class NearestNeighbor {
 	}
 
 	private static double caluAccu(int num, int totalNum) {
-
 //		DecimalFormat fmt = new DecimalFormat("0.################");
 
 		double accuracy = (double) num / totalNum;
@@ -179,6 +174,8 @@ public class NearestNeighbor {
 }
 
 
+
+// Output:
 /*
 Programming Fundamentals
 NAME: Guanxiaoxiong Liu
