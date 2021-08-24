@@ -1,7 +1,11 @@
 package Week6;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -45,14 +49,12 @@ public class NearestNeighbor {
 		// dataset files.
 		System.out.print("Enter the name of the training file: ");
 		fileNameTrain = scan.nextLine();
-		File f1 = new File(
-				"C:\\Users\\guanxiaoxiong.liu\\eclipse-workspace\\MyFirstProject\\src\\Week6\\" + fileNameTrain);
-		fileScanTrain = new Scanner(f1);
+		String f1 = getInputStream(fileNameTrain);
+        fileScanTrain = new Scanner(f1);
 
 		System.out.print("Enter the name of the testing file: ");
 		fileNameTest = scan.nextLine();
-		File f2 = new File(
-				"C:\\Users\\guanxiaoxiong.liu\\eclipse-workspace\\MyFirstProject\\src\\Week6\\" + fileNameTest);
+		String f2 = getInputStream(fileNameTest);
 		fileScanTest = new Scanner(f2);
 
 		// 2. Loads and parses the training and testing dataset files into separate
@@ -171,6 +173,35 @@ public class NearestNeighbor {
 //		return Double.parseDouble(s);	// string --> double
 		return accuracy;
 	}
+	
+	private static String getInputStream(String file) {
+		InputStream inputStream = 
+				PrintMessage.class.getResourceAsStream("/" + file);
+		if (inputStream == null)
+		{
+			System.out.println("Input Stream is null");
+		}
+        String f1 = null;
+		try {
+			f1 = inputStreamToString(inputStream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return f1;
+	}
+	
+	private static String inputStreamToString(InputStream aInInputStream)
+    		throws IOException {
+
+        ByteArrayOutputStream byteArrayOutputStream =
+        		new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = aInInputStream.read(buffer)) != -1) {
+            byteArrayOutputStream.write(buffer, 0, length);
+        }
+        return byteArrayOutputStream.toString(StandardCharsets.UTF_8.name());
+    }
 }
 
 
