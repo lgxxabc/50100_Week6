@@ -50,7 +50,7 @@ public class NearestNeighbor {
 		System.out.print("Enter the name of the training file: ");
 		fileNameTrain = scan.nextLine();
 		String f1 = getInputStream(fileNameTrain);
-        fileScanTrain = new Scanner(f1);
+        	fileScanTrain = new Scanner(f1);
 
 		System.out.print("Enter the name of the testing file: ");
 		fileNameTest = scan.nextLine();
