@@ -175,13 +175,11 @@ public class NearestNeighbor {
 	}
 	
 	private static String getInputStream(String file) {
-		InputStream inputStream = 
-				PrintMessage.class.getResourceAsStream("/" + file);
-		if (inputStream == null)
-		{
+		InputStream inputStream = PrintMessage.class.getResourceAsStream("/" + file);
+		if (inputStream == null) {
 			System.out.println("Input Stream is null");
 		}
-        String f1 = null;
+		String f1 = null;
 		try {
 			f1 = inputStreamToString(inputStream);
 		} catch (IOException e) {
@@ -190,18 +188,15 @@ public class NearestNeighbor {
 		return f1;
 	}
 	
-	private static String inputStreamToString(InputStream aInInputStream)
-    		throws IOException {
-
-        ByteArrayOutputStream byteArrayOutputStream =
-        		new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = aInInputStream.read(buffer)) != -1) {
-            byteArrayOutputStream.write(buffer, 0, length);
-        }
-        return byteArrayOutputStream.toString(StandardCharsets.UTF_8.name());
-    }
+	private static String inputStreamToString(InputStream aInInputStream) throws IOException {
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		byte[] buffer = new byte[1024];
+		int length;
+		while ((length = aInInputStream.read(buffer)) != -1) {
+			byteArrayOutputStream.write(buffer, 0, length);
+		}
+		return byteArrayOutputStream.toString(StandardCharsets.UTF_8.name());
+	}
 }
 
 
